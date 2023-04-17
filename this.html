@@ -1,0 +1,95 @@
+<div></div>
+<button id="버튼1">버튼</button>
+<button id="버튼2">버튼</button>
+<!-- this의 첫번째 의미  -->
+<script>
+  x = 300;
+  console.log(this); // 1. this : JS 기본함수
+
+  function 함수() {
+    console.log(this);
+  }
+
+  함수();
+</script>
+
+<script>
+  'use strict';
+  x = 300; // var x = 300 이라고 써야함. 엄격한 모드에서는 var를 써야함.
+
+  console.log(this);
+
+  function 함수() {
+    console.log(this);
+  }
+
+  함수();
+</script>
+
+<!-- this의 두번째 의미  -->
+<script>
+  var object1 = {
+    data: 'Kim',
+    func: function () {
+      console.log(this); // 2. this : 오브젝트 내 함수 안에서 쓰면 그 함수를 가지고 있는 오브젝트를 가리킴
+      /*
+      {"data": "Kim"}
+      **/
+    },
+  };
+
+  var object2 = {
+    data: {
+      func: function () {
+        console.log(this); // {data: {func: ƒ}}
+      },
+    },
+  };
+
+  var object3 = {
+    data: {
+      func: () => {
+        console.log(this); // this 값을 함수밖에 있던 걸 그대로 쓴다. (window)
+      },
+    },
+  };
+
+  object1.func();
+  object2.data.func();
+  object3.data.func();
+
+  // 함수나 변수를 전역공간에서 만들면 {window} object에 들어가게 됨.
+</script>
+
+<!-- this의 세번째 의미  -->
+<script>
+  var 어쩌구 = {};
+
+  // Object 생성기계 (constructor)
+  function 기계() {
+    // 3. this : 기계라는 생성기계를 통해 만들어진 오브젝트를 가리킴
+    this.이름 = 'Kim'; // 새로 생성되는 오브젝트 (instance)
+  }
+
+  var object4 = new 기계(); // 오브젝트를 기계에서 새로 뽑아주셈
+</script>
+
+<!-- this의 네번째 의미  -->
+<script>
+  document.getElementById('버튼1').addEventListener('click', function (e) {
+    // 실행
+    console.log(this); // 4. this : 이벤트리스너 안에서 쓰이면 이벤트리스너가 붙어있는 오브젝트를 가리킴 ( = e.currentTarget )
+  });
+</script>
+
+<script>
+  document.getElementById('버튼2').addEventListener('click', function (e) {
+    var arr = [1, 2, 3, 4, 5];
+    arr.forEach(function (item) {
+      console.log(item);
+    //   console.log(this); // 5. this : forEach 안에서 쓰이면 forEach를 가지고 있는 오브젝트를 가리킴
+    });
+  });
+</script>
+
+<!-- 함수가 쓰인 위치에 따라 this의 위치가 바뀜. -->
