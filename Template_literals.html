@@ -1,0 +1,46 @@
+<div></div>
+
+<script>
+  /**
+  자바스크립트에서 문자를 다룰 때 어려웠던 점을 해결하기 위해 나온 문법.
+  따옴표 대신 backquote, backtick 이라는 `요런` 기호를 사용해서 문자열을 만든다.
+  */
+
+  // 1. 문자 중간에 줄바꿈을 넣을 수 있다.
+  var 문자 = `안녕
+  하세요`;
+
+  //  2. 문자 중간에 변수를 넣을 수 있다.
+  var 이름 = '손흥민';
+  var 문자 = `안녕하세요 ${이름} 입니다`;
+
+  var 문자 = `
+    <div>
+    <div>
+        ${변수명}
+    </div>
+    </div>`;
+
+  // Template literals 예제
+  var pants = 20;
+  var socks = 100;
+  `바지${pants} 양말${socks}`;
+
+  function 해체분석기(글자들, 변수들1, 변수들2) {
+    console.log(글자들[1] + 변수들1 + 글자들[0] + 변수들2);
+  }
+
+  해체분석기`바지${pants} 양말${socks}`;
+
+  var pants = 0;
+  var socks = 100;
+  `바지${pants} 양말${socks}`;
+
+  function 해체분석기(글자들, 변수들1, 변수들2) {
+    if (변수들1 == 0) {
+      console.log(`바지다팔렸어요 양말` + 변수들2);
+    }
+  }
+
+  해체분석기`바지${pants} 양말${socks}`;
+</script>
