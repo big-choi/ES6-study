@@ -1,0 +1,66 @@
+<div></div>
+
+<script>
+  //1.
+  var a = [1, 2, 3];
+  var b = '김밥';
+  var c = [...b, ...a];
+  console.log(c); // ['김','밥',1,2,3]
+
+  //2.
+  var a = [1, 2, 3];
+  var b = ['you', 'are'];
+  var c = function (a, b) {
+    console.log([[...a, ...b]]); // [[1,2,3,'you','are']]
+  };
+
+  function 함수(a = 5, b = a * 2) {
+    console.log(a + b);
+    return 10;
+  }
+  함수(3);
+
+  function 함수2(a = 5, b = a * 2) {
+    console.log(a + b);
+  }
+
+  함수2(undefined, undefined);
+
+  function makeArray() {
+    var arr = [];
+    for (var i = 0; i < arguments.length; i++) {
+      arr.push(arguments[i]);
+    }
+    return arr;
+  }
+
+  var newArray = makeArray(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+  console.log(newArray);
+
+  var numbers = [1, 2, 3, 4, 5, 6, 7, 8, 74];
+  console.log(Math.max(...numbers));
+  console.log(numbers.arguments); // undefined
+  // console.log(numbers.arguments) 가 undefined인 이유는 arguments는 함수 안에서만 사용할 수 있기 때문이다.
+
+  // 문자열 정렬
+  function 정렬(any) {
+    console.log([...any].sort());
+  }
+
+  정렬('bear'); // a b e r
+
+  function 글자세기(str) {
+    var arr = [...str];
+    var obj = {};
+    for (var i = 0; i < arr.length; i++) {
+      if (obj[arr[i]] === undefined) {
+        obj[arr[i]] = 1;
+      } else {
+        obj[arr[i]] += 1;
+      }
+    }
+    console.log(obj);
+  }
+
+  글자세기('aabbbccdd')
+</script>
