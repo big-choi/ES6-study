@@ -1,0 +1,67 @@
+<script>
+  // constructor의 용도
+  // 1. 객체를 만드는 함수
+  // 오브젝트를 복사하고, 여러개를 만들고 싶을 때
+
+  // 예시 : 학생 출석부
+  // Q. 비슷한 학생 obejct를 여러개 만드려면?
+  // A. constructor라는 object 생성 기계를 만든다.
+
+  var 학생1 = {
+    name: 'Kim',
+    age: 15,
+    sayHi: function () {
+      console.log('안녕하세요. 저는 ' + this.name + ' 입니다.');
+    },
+  };
+
+  학생1.sayHi();
+
+  function Student(이름) {
+    // 대문자로 시작하는 함수는 constructor다.
+    this.name = 이름; // this는 새로 만들어진 object를 가리킨다.
+    this.age = 15;
+    this.sayHi = function () {
+      console.log('안녕하세요. 저는 ' + this.name + ' 입니다.');
+    };
+  }
+
+  var 학생1 = new Student('Kim'); // Student { name: 'Kim', age: 15, sayHi: [Function]}
+  var 학생2 = new Student('Park'); // Student { name: 'Park', age: 15, sayHi: [Function]}
+
+  console.log(학생1); // Student { name: 'Kim', age: 15, sayHi: [Function] }
+</script>
+
+<script>
+  // 예제
+  function Products(name, price) {
+    this.name = name;
+    this.price = price;
+    this.부가세 = function () {
+      console.log(this.price * 0.1);
+    };
+  }
+
+  var products1 = new Products('shirts', 50000);
+  var products2 = new Products('pants', 60000);
+
+  console.log(products1); // Products { name: 'shirts', price: 50000 }
+  console.log(products2); // Products { name: 'pants', price: 60000 }
+</script>
+
+<script>
+  // 상속을 구현할 수 있는 또 하나의 문법 : prototype (유전자)
+  // 기계(constructor)를 만들 때, prototype이라는 공간이 자동으로 만들어진다.
+  function 기계(이름) {
+    this.name = 이름;
+    this.age = 15;
+    this.sayHi = function () {
+      console.log('안녕하세요. 저는 ' + this.name + ' 입니다.');
+    };
+  }
+
+  기계.prototype.gender = '남'; // prototype에 값을 추가하면 모든 자식들이 물려받는다.
+
+  var 학생1 = new 기계('Kim');
+  console.log(학생1.gender); // 남 (부모 유전자에 있어서 상속가능)
+</script>

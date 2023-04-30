@@ -1,12 +1,17 @@
 <div></div>
 
 <script>
+  // 1. Primitive data type
   // 그냥 문자와 숫자는 primitive type이라고 한다.
-  var 변수 = 5;
+  // 자료 자체가 변수에 담겨있다.
+  var name = 'Kim';
+  var age = 5;
 
+  // 2. Reference data type
   // Array, Object는 변수에 담긴 값이 아니라
   // 변수에 담긴 값의 주소를 담고 있다. (변수에 reference type이 담겨있다.)
   // ex) [1, 2, 3, 4, 5] -> 0x1234 -> [1, 2, 3, 4, 5] 가 저쪽에 있다.(화살표)
+  // 화살표란 가리키는 곳 : 컴퓨터 메모리의 주소. C언어의 포인터와 비슷하다.
   var 어레이 = [1, 2, 3, 4, 5];
   var obj = { name: 'Kim' };
 </script>
@@ -46,7 +51,7 @@
   var 이름1 = { name: '김' };
 
   function 변경(obj) {
-    obj = { name : 'park' };
+    obj = { name: 'park' };
   }
 
   변경(이름1); // 변경 없음
