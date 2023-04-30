@@ -1,0 +1,53 @@
+<div></div>
+
+<script>
+  // 그냥 문자와 숫자는 primitive type이라고 한다.
+  var 변수 = 5;
+
+  // Array, Object는 변수에 담긴 값이 아니라
+  // 변수에 담긴 값의 주소를 담고 있다. (변수에 reference type이 담겨있다.)
+  // ex) [1, 2, 3, 4, 5] -> 0x1234 -> [1, 2, 3, 4, 5] 가 저쪽에 있다.(화살표)
+  var 어레이 = [1, 2, 3, 4, 5];
+  var obj = { name: 'Kim' };
+</script>
+
+<script>
+  var 이름1 = 'Kim';
+  var 이름2 = 이름1; // 복사
+  이름1 = 'Park';
+
+  console.log(이름2); // Kim
+</script>
+
+<script>
+  var 이름1 = { name: 'Kim' };
+  var 이름2 = 이름1; // 복사 (주소 복사) = (화살표 복사)
+  이름1.name = 'Park';
+
+  console.log(이름1.name); // Park
+  console.log(이름2.name); // Park
+
+  // 이름2는 데이터 변경한 적이 없는데?
+  // 이름1의 데이터를 변경하면 이름2도 변경된다.
+  // 이름1과 이름2는 같은 데이터를 가리키고 있기 때문이다.
+  // reference type은 데이터가 아니라 데이터의 주소를 가리키고 있다.
+  // 그래서 Array, Object는 함부로 복사해서 쓰면 안된다.
+</script>
+
+<script>
+  var 이름1 = { name: 'Kim' };
+  var 이름2 = { name: 'Kim' };
+
+  이름1 == 이름2; // false
+  // 화살표1 == 화살표2; // false
+</script>
+
+<script>
+  var 이름1 = { name: '김' };
+
+  function 변경(obj) {
+    obj = { name : 'park' };
+  }
+
+  변경(이름1); // 변경 없음
+</script>
