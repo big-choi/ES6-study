@@ -64,4 +64,19 @@
 
   var 학생1 = new 기계('Kim');
   console.log(학생1.gender); // 남 (부모 유전자에 있어서 상속가능)
+
+  // 원리
+  학생1.name; // 학생1이 직접 name을 가지고 있는가? 그럼 출력
+  학생1.gender; // 학생1이 직접 gender을 가지고 있는가? 없다. 그럼 prototype을 찾아서 출력
+
+  //JS 내장함수를 사용할 수 있는 이유?
+  학생1.toString(); // [object Object] (부모 유전자에 있어서 상속가능)
+  [1, 2, 3].sort(); // 1,2,3 (부모 유전자에 있어서 상속가능)
+
+  // (1) arr에 sort()가 있는지 확인
+  // (2) 없으면 prototype에 sort()가 있는지 확인
+  var arr = [1, 2, 3];
+  var arr = new Array(1, 2, 3); // 실제 내부적으로는 이렇게 동작한다.
+  var obj = { name: 'Kim' };
+  var obj = new Object({ name: 'Kim' }); // 실제 내부적으로는 이렇게 동작한다.
 </script>
