@@ -1,0 +1,65 @@
+<div></div>
+
+<script>
+  // ES5 문법
+  //Object.create(프로토타입object);
+
+  var 부모 = { name: 'Kim', age: 50 };
+  // 부모가 가진 name, age를 그대로 물려받은 자식 object를 만들고 싶으면?
+  // 1. constructor function 2. Object.create(프로토타입object);
+
+  var 자식 = Object.create(부모); // protype을 부모로 해주세요.
+
+  console.log(자식.name); // Kim
+  // 1. 자식이 직접 name을 갖고 있나 ? 없다.
+  // 2. 그럼 자식의 부모 prototype에 name이 있나 ? 있다.
+  자식.age = 20;
+
+  var 손자 = Object.create(자식);
+  console.log(손자.name); // Kim
+  // 1. 손자가 직접 name을 갖고 있나 ? 없다.
+  // 2. 그럼 손자의 부모 prototype에 name이 있나 ? 있다.
+</script>
+
+<script>
+  // ES6 문법
+  class 부모 {
+    constructor(name, age) {
+      this.name = name;
+      this.age = age;
+      // this.sayHi = function() {
+      //   console.log('Hi'); // 자식 prototype에 sayHi가 있다.
+      // }
+    }
+    sayHi() {
+      console.log('Hi'); // 부모 prototype에 sayHi가 있다.
+    }
+    sayHello() {
+      console.log('Hello');
+    }
+  }
+
+  var 자식 = new 부모('Kim', 50);
+  자식.__proto__; // = 부모 prototype;
+  Object.getPrototypeOf(자식); // = 부모 prototype;
+
+  // 상속에 상속
+  class 할아버지 {
+    constructor(name, name2) {
+      this.성 = 'Kim';
+      this.이름 = name;
+      this.이름2 = name2;
+    }
+  }
+
+  var 할아버지1 = new 할아버지('만덕');
+
+  class 아버지 extends 할아버지 {
+    constructor() {
+      super(name, name2); // 부모의 constructor를 실행해주세요.
+      this.age = 50;
+    }
+  }
+
+  var 아버지1 = new 아버지();
+</script>
