@@ -1,0 +1,49 @@
+<div></div>
+
+<script>
+  var 사람 = {
+    name: 'Park',
+    age: 30,
+    get nextAge() {
+      return (this.age += 1);
+      // 함수를 만들어 Object 데이터를 다루는 이유
+      // 1. object 자료가 복잡할 때 함수를 통해 데이터를 다루기 쉽게 만들기 위해서
+    },
+    // setAge(나이) {
+    //     this.age = 나이;
+    //   //2. object 자료 수정시 편리하다.
+    // }
+    set setAge(나이) {
+      this.age = parseInt(나이);
+    },
+  };
+
+  //   사람.age; // 30. 데이터 타입을 혼동하기 쉽다.
+  //   사람.nextAge(); // 31
+  //   사람.setAge(50); // 50
+  사람.setAge = '50'; // 50
+  사람.nextAge; // 51
+</script>
+
+<script>
+  class 사람 {
+    constructor() {
+      this.name = 'Park';
+      this.age = 20;
+    }
+    // nextAge() {
+    //   return this.age + 1;
+    // }
+    get nextAge() {
+      return this.age + 1;
+    }
+    set setAge(나이) {
+      this.age = parseInt(나이);
+    }
+  }
+
+  var 사람1 = new 사람();
+  //   사람1.nextAge(); // 21
+  사람1.nextAge; // 21
+  사람1.setAge = '50'; // 50
+</script>
