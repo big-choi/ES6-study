@@ -1,0 +1,77 @@
+<div></div>
+
+<script>
+  class 강아지 {
+    constructor(type, color) {
+      this.type = type;
+      this.color = color;
+    }
+
+    한살먹기() {
+      console.error('강아지는 한살먹기를 할 수 없습니다.');
+    }
+  }
+
+  var 강아지1 = new 강아지('말티즈', 'white');
+  var 강아지2 = new 강아지('진돗개', 'brown');
+
+  class 고양이 extends 강아지 {
+    constructor(type, color, age) {
+      super(type, color);
+      this.age = age;
+    }
+
+    한살먹기() {
+      return (this.age += 1);
+    }
+  }
+
+  var 고양이1 = new 고양이('코숏', 'white', 5);
+  var 고양이2 = new 고양이('러시안블루', 'brown', 2);
+
+  강아지1.한살먹기();
+  고양이1.한살먹기();
+
+  class Unit {
+    constructor() {
+      this.atk = 5;
+      this.hp = 100;
+    }
+
+    get battlePoint() {
+      return this.atk + this.hp;
+    }
+
+    set heal(amount) {
+      this.hp += amount;
+    }
+  }
+
+  var myUnit1 = new Unit();
+  console.log(`bp : ${myUnit1.battlePoint}`); // 105
+
+  var myUnit2 = new Unit();
+  myUnit2.heal = 50;
+  console.log(`heal : ${myUnit2.hp}`); // 150
+
+  var data = {
+    odd: [],
+    even: [],
+    constructor(params) {
+      this.odd = params.filter((item) => item % 2);
+      this.even = params.filter((item) => !(item % 2));
+    },
+    set addData(params) {
+      this.odd.push(params);
+      this.even.push(params);
+    },
+
+    get getData() {
+      // odd, even 분리
+      return { odd: this.odd, even: this.even };
+    },
+  };
+
+  data.constructor([1, 2, 3, 4, 5]);
+  console.log(data.getData); // {odd: [1, 3, 5], even: [2, 4]}
+</script>
