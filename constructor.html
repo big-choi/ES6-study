@@ -80,3 +80,22 @@
   var obj = { name: 'Kim' };
   var obj = new Object({ name: 'Kim' }); // 실제 내부적으로는 이렇게 동작한다.
 </script>
+
+<script>
+  // 연습문제
+  // Object 자료 여러개
+  // var obj1 = { name: 'Kim', age: 15 };
+  // var obj2 = { name: 'Park', age: 16 };
+  // var obj3 = { name: 'Lee', age: 17 };
+
+  function 기계(이름, 나이){
+    this.name = 이름;
+    this.age = 나이;
+    this.sayHi = function() {
+      console.log(`안녕 나는 ${this.name}이야`);
+    }
+  }
+
+  var 학생1 = new 기계('Kim', 15);
+  console.log(학생1.sayHi()); // { name: 'Kim', age: 15, sayHi: [Function] }
+</script>
