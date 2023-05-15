@@ -1,0 +1,8 @@
+<script></script>
+
+<script type="module">
+  // import { a, b, c } from '/library.js'; // library.js에 a 변수를 가지고 오겠다.
+  // import { a as 별명, b as 별명2 } from '/library.js'; // 별명으로 가져오겠다.
+  import * as 별명 from '/library.js'; // library.js에 있는 모든 변수를 별명으로 가져오겠다.
+  console.log(별명.a, 별명.b); // 10;
+</script>
