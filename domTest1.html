@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1 id="title">DOM 문서구조</h1>
+
+    <ul>
+      <li>구글</li>
+      <li class="link-class" name="link-name">네이버</li>
+      <li class="link-class" name="link-name">카카오</li>
+    </ul>
+
+    <script>
+    //   // ID 이용
+    //   document.write(`ID 이용 ::: ${document.getElementById('title').textContent} <br>`);
+
+    //   // name 이용
+    //   let nameArr = document.getElementsByName('link-name');
+    //   for (let i in nameArr) {
+    //     document.write(nameArr[i].firstChild.textContent + '<br>');
+    //   }
+
+    //   //class 이용
+    //   let classArr = document.getElementsByClassName('link-class');
+    //   for (let i in classArr) {
+    //     document.write(classArr[i].lastChild.textContent + '<br>');
+    //   }
+    document.getElementById('title').innerText ='DOM 활용 - 찾기, 읽기, 편집';
+    </script>
+  </body>
+</html>
