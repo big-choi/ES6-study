@@ -1,0 +1,41 @@
+<div></div>
+
+<script>
+  // async function 더하기() {
+  //     return 1 + 1;
+  //     // return Promise.reject('실패');
+  // }
+
+  // // async를 function 앞에 붙이면 Promise를 리턴한다. ( = 함수 실행 후에 Promise 오브젝트가 리턴된다.)
+  // 더하기().then(function(결과) {
+  //     console.log(결과); // 성공만 판정 가능
+  // })
+</script>
+
+<script>
+  async function 더하기() {
+    var 프로미스 = new Promise(function (성공, 실패) {
+      var 힘든연산 = 1 + 1;
+      성공(100);
+      실패('실패');
+    });
+
+    // 프로미스.then(function () {
+    //   console.log('성공함');
+    // });
+
+    try {
+      //이걸해보고
+      var 결과 = await 프로미스;
+      console.log(결과);
+    } catch (error) {
+      // 실패하면 이걸해
+      console.log('프로미스 실패');
+    }
+    // var 결과 = await 프로미스; // 기다려 달라. 프로미스가 끝날 때까지 기다려 달라.
+    // console.log(결과);
+    // console.log('프로미스 끝');
+  }
+
+  더하기();
+</script>

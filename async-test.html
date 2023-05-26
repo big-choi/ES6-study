@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="promise">버튼</button>
+  </body>
+
+  <script>
+        /*
+    예제 : <button>을 누르면 성공하는 Promise 만들기
+    Q. HTML 페이지 내에 버튼 아무거나 하나 만들고
+    그걸 클릭하면 성공하는 Promise를 만들고 싶습니다.
+    성공하면 콘솔창에 '성공했어요'를 출력하고요.
+    어떻게 코드를 짜면 될까요?
+    (async, await이 필요하면 써봅시다)
+        */
+    async function 만들기() {
+      var 버튼 = document.querySelector('#promise');
+      var 프로미스 = new Promise((성공, 실패) => {
+        버튼.addEventListener('click', function () {
+          성공();
+        });
+      });
+      try {
+        var 결과 = await 프로미스;
+        console.log('성공했어요');
+      } catch (error) {
+        console.log('실패');
+      }
+    }
+
+    만들기();
+  </script>
+</html>
