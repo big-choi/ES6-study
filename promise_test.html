@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <img id="test" src="https://codingapple1.github.io/kona.jpg" />
+  </body>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script>
+    // Q1
+    let imgNode = new Promise(function (resolve, reject) {
+      let img = document.getElementById('test');
+      img.addEventListener('load', function () {
+        resolve(img);
+      });
+      img.addEventListener('error', function () {
+        reject('error');
+      });
+    });
+
+    imgNode
+      .then(function (img) {
+        console.log('로딩 성공');
+      })
+      .catch(function (error) {
+        console.log('로딩 실패');
+      });
+  </script>
+  <script>
+    // Q2
+    $.ajax({
+      type: 'GET',
+      url: 'https://codingapple1.github.io/hello.txt',
+    }).done(function (data) {
+      console.log('성공 : ' + data);
+      let promise = new Promise(function (resolve, reject) {
+        resolve();
+      });
+
+      promise
+        .then(function () {
+          console.log(`프로미스 성공 : ${data}`);
+        })
+        .catch(function () {
+          console.log('프로미스 실패');
+        });
+    });
+
+    // Q2 Answer
+    var 프로미스 = new Promise(function (성공, 실패) {
+      $.get('https://codingapple1.github.io/hello.txt').done(function (결과) {
+        성공(결과);
+      });
+    });
+
+    프로미스.then(function (결과) {
+      console.log(결과);
+    });
+  </script>
+
+  <script>
+    var 프로미스 = new Promise(function (성공, 실패) {
+      $.get('https://codingapple1.github.io/hello.txt').done(function (결과) {
+        성공(결과);
+      });
+    }).then(function (결과) {
+        $.get('https://codingapple1.github.io/hello2.txt').done(function (결과2) {
+            console.log(결과2);
+        });
+    });
+  </script>
+</html>

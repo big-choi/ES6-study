@@ -1,10 +1,32 @@
-<div>
-</div>
+<div></div>
 
 <script>
-    var 프로미스 = new Promise();
+//   var 프로미스 = new Promise(function (resolve, reject) {
+//     // 성공/실패
+//     var 어려운연산 = 1 + 1;
+//     resolve();
+//   });
 
-    프로미스.then(function(값) {
-        console.log(값);
-    });
+//   프로미스.then(function (result) {
+//     console.log('성공');
+//   }).catch(function (error) {
+//     console.log('실패');
+//   })
 </script>
+
+<script>
+    var 프로미스 = new Promise(function (resolve, reject) {
+        // 1초 후에 성공/실패
+       setTimeout(function () {
+           resolve();
+       }, 1000);
+    });
+
+    프로미스.then(function (result) {
+        console.log('성공');
+    }).catch(function (error) {
+        console.log('실패');
+    })
+</script>
+
+
