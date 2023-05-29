@@ -1,12 +1,27 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>연습문제 2</title>
-</head>
-<body>
-	
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>연습문제 2</title>
+  </head>
+  <body>
+    <script>
+      let a = parseInt(prompt('첫 번째 숫자'));
+      let b = parseInt(prompt('두 번째 숫자'));
+
+      function compareNumber(x, y) {
+        if (x == y) {
+          return alert(`${x}와 ${y}는 같다`);
+        } else if (x > y) {
+          return alert(`${x}(은)는 ${y}보다 크다.`);
+        } else if (x < y) {
+          return alert(`${y}(은)는 ${x}보다 크다.`);
+        }
+      }
+
+      compareNumber(a, b);
+    </script>
+  </body>
 </html>
