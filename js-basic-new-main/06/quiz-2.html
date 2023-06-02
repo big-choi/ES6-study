@@ -18,19 +18,33 @@
 
       circle1 = new Circle(r);
 
-      function Circle(r) {
-        this.r = r;
+      function Circle(radius) {
+        this.radius = radius;
         this.둘레 = function () {
-          return Math.round(this.r * 2 * Math.PI);
+          return Math.round(this.radius * 2 * Math.PI);
         };
         this.넓이 = function () {
-          return Math.round(r * r * Math.PI);
+          return Math.round(radius * radius * Math.PI);
         };
       }
 
-      document.write(`반지름이 ${circle1.r}cm 일때 <br>`);
+      document.write(`반지름이 ${circle1.radius}cm 일때 <br>`);
       document.write(`원의 둘레 : 약${circle1.둘레()}cm <br>`);
       document.write(`원의 넓이 : 약${circle1.넓이()}cm2 <br>`);
+
+      /*
+	`radius`와 `r`은 실제로는 동일한 값을 나타내는 변수. 이름만 다를 뿐.
+
+	생성자 함수 `Circle`의 파라미터는 `radius`라는 이름으로 정의되어 있다.
+	이 파라미터는 원의 반지름을 나타내는 값.
+
+	그리고 `new` 키워드를 사용하여 객체를 생성할 때, 생성자 함수에 전달되는 인수(argument)를 통해 파라미터에 값을 전달한다.
+	이 코드에서는 `r`이라는 변수가 `prompt` 함수를 통해 입력받은 원의 반지름을 저장하고 있습니다.
+
+	즉, `prompt` 함수를 통해 입력받은 값을 `r`이라는 변수에 저장한 뒤, 이 값을 생성자 함수 `Circle`의 파라미터 `radius`에 전달하여 객체를 생성하고 있습니다.
+
+	결과적으로, `radius`와 `r`은 같은 값을 가리키고 있으므로 동일한 결과를 얻을 수 있습니다.
+	  */
     </script>
   </body>
 </html>
