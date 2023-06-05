@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <style>
+    li {
+      font-size: 20px;
+    }
+  </style>
+  <body>
+    <h2>과일을 클릭해봐</h2>
+
+    <p>예제3 : 여러개 html element에 js의 addEventListener 로 이벤트 등록하기</p>
+
+    <ol>
+      <li class="item">사과</li>
+      <li class="item">수박</li>
+      <li class="item">오렌지</li>
+    </ol>
+
+    <script>
+      function onClickListItem(event) {
+        console.log(event);
+        alert(event.target.innerText + '를 클릭했구나!');
+      }
+
+      document.addEventListener('DOMContentLoaded', () => {
+        const listItems = document.getElementsByClassName('item');
+        for (item of listItems) {
+          item.addEventListener('click', onClickListItem);
+        }
+      });
+    </script>
+  </body>
+</html>
