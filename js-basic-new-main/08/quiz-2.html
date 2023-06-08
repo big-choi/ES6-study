@@ -36,11 +36,11 @@
     <script>
       let list = document.querySelectorAll('.check');
 
-	  for (const iterator of list) {
-		iterator.addEventListener('click', function() {
-			console.log(iterator);
-		})
-	  }
+      for (let i = 0; i < list.length; i++) {
+        list[i].addEventListener('click', function() {
+          this.parentNode.style.color = '#ccc';
+        })
+      }
     </script>
   </body>
 </html>
