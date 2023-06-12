@@ -10,3 +10,11 @@ export const makeDOMwithProperties = (domType, propertyMap) => {
 
     return dom;
 }
+
+export const appendChildrenList = (target, childrenList) => {
+    if (!Array.isArray(childrenList)) return; // early return
+
+    childrenList.forEach((children) => {
+        target.appendChild(children);
+    })
+}
