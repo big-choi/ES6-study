@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>현재 시간</title>
+  </head>
+  <body>
+    <p id="time"></p>
+
+    <script>
+      // 현재 시간 표시
+      var currentTime = new Date();
+      var hours = currentTime.getHours();
+      var minutes = currentTime.getMinutes();
+      var seconds = currentTime.getSeconds();
+
+      if (hours < 10) {
+        hours = '0' + hours;
+      }
+      if (minutes < 10) {
+        minutes = '0' + minutes;
+      }
+      if (seconds < 10) {
+        seconds = '0' + seconds;
+      }
+
+      var timeString = hours + ':' + minutes + ':' + seconds;
+
+      document.getElementById('time').textContent = timeString;
+    </script>
+
+    <script>
+      function getCurrentTime() {
+        var currentTime = new Date();
+        var hours = currentTime.getHours();
+        var minutes = currentTime.getMinutes();
+        var seconds = currentTime.getSeconds();
+
+        if (hours < 10) {
+          hours = '0' + hours;
+        }
+        if (minutes < 10) {
+          minutes = '0' + minutes;
+        }
+        if (seconds < 10) {
+          seconds = '0' + seconds;
+        }
+
+        var timeString = hours + ':' + minutes + ':' + seconds;
+        return timeString;
+      }
+
+      function displayTime() {
+        var timeString = getCurrentTime();
+        document.getElementById('time').textContent = timeString;
+      }
+
+      // 페이지 로드 시 시간 표시
+      displayTime();
+
+      const prefix = 'prop';
+      let i = 0;
+
+      const obj = {
+        [`${prefix} - ${++i}`]: i,
+        [`${prefix} - ${++i}`]: i,
+        [`${prefix} - ${++i}`]: i,
+      };
+    </script>
+
+    <script>
+      const o = { x: { y: 1 }, z: 2 };
+      const c = structuredClone(o);
+
+      c.x.y = 100;
+      console.log(o); // { x: { y: 100 }, z: 2 }
+      console.log(c); // { x: { y: 100 }, z: 2 }
+
+      var add = function (a, b) {
+        return a + b;
+      }
+
+      // 변수 선언문 예시.
+      var a = 1, b = 2, c = 3;
+
+      // 함수 리터럴 예시
+      function add(a, b) {
+        return a + b;
+      }
+    </script>
+  </body>
+</html>
