@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p id="button">버튼</p>
+  </body>
+
+  <script>
+    // 코드 흐름
+    // 1. querySelector() 함수가 실행되면서 #button을 찾는다.
+    // 2. addEventListener() 함수가 실행되면서 첫번째 파라미터로 'click'이라는 문자열을 전달한다.
+    // 3. 두번째 파라미터로 실행할 함수를 전달한다.
+    // 4. alert() 함수가 실행되면서 '안녕'이라는 메시지가 출력된다.
+    document.querySelector('#button').addEventListener('click', function () {
+      alert('안녕');
+    });
+  </script>
+
+  <script>
+    setTimeout(function () {
+      alert('안녕');
+    }, 3000);
+
+    setInterval(function () {
+      alert('안녕');
+    }, 3000);
+  </script>
+</html>
