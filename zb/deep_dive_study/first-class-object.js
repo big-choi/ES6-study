@@ -56,3 +56,17 @@ function sum(...args) {
 
 console.log(sum(1, 2)); // 3
 console.log(sum(1, 2, 3, 4, 5)); // 15
+
+// # __proto__ 접근자 프로퍼티
+// 모든 객체는 [[Prototype]]이라는 내부 슬롯을 갖는다. 이 내부 슬롯은 객체지향 프로그래밍의 상속을 구현하는 프로토타입 객체를 가리킨다.
+// __proto__ 프로퍼티는 [[Prototype]] 내부 슬롯의 값, 즉 프로토타입 객체를 가리킨다. 내부 슬롯에는 직접 접근할 수 없지만 __proto__ 접근자 프로퍼티를 통해 간접적으로 접근할 수 있다.
+// [[Prototype]] 내부 슬롯에도 직접 접근할 수 없지만 __proto__ 접근자 프로퍼티를 통해 간접적으로 접근할 수 있다.
+
+const obj = { a: 1 };
+
+// obj 객체의 프로토타입 객체는 Object.prototype이다.
+console.log(obj.__proto__ === Object.prototype); // true
+
+// Object.prototype 객체의 프로토타입 객체는 null이다.
+console.log(obj.__proto__.__proto__ === null); // true
+console.log(obj.hasOwnProperty('__proto__')); // false
