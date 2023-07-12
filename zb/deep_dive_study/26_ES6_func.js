@@ -52,7 +52,7 @@ console.log(prefixer.add(['transition', 'user-select']));
 
 const person = {
     name: 'Lee',
-    sayHi : () => console.log(`Hi ${this.name}`)
+    sayHi: () => console.log(`Hi ${this.name}`)
 };
 
 person.sayHi(); // Hi
@@ -60,3 +60,31 @@ person.sayHi(); // Hi
 // 화살표 함수는 메서드로 사용하기에는 적합하지 않다.
 // sayHi 메서드 내부의 this는 메서드를 소유한 객체, 즉 person 객체를 가리키지 않고 상위 스코프인 전역 객체를 가리키기 때문이다.
 // super, arguments도 상위 스코프의 super, arguments를 가리킨다.
+
+
+// 26.4 Rest 파라미터
+
+function sum(num1, num2, num3) {
+    return this;
+}
+
+console.log(sum(1, 2, 3)); // window
+
+
+class Person {
+    constructor(firstName, lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
+    get fullName() {
+        return `${this.firstName} ${this.lastName}`;
+    }
+
+    set fullName(name) {
+        [this.firstName, this.lastName] = name.split(' ');
+    }
+}
+
+const me = new Person('Ungmo', 'Lee');
+
