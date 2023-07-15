@@ -11,7 +11,8 @@
 
 // 33.7 Well-Known Symbol
 // 자바스크립트는 기본으로 제공하는 빌트인 심벌 값을 제공한다. Array나 Object 같은 자료형을 만들 때 암묵적으로 사용되는 심벌 값이다.
-// 예를 들면 Array의 경우 Symbol.iterator, Symbol.isConcatSpreadable, Symbol.species 등이 있다.
+// 예를 들면 Array, String 등의 경우 Symbol.iterator를 키로 갖는 메서드를 가지고 있다. 이 메서드는 이터레이터를 반환한다고 규정되어있다.
+// 빌트인 이터러블은 이터레이션 프로토콜을 준수한다.
 
 // 어디에 사용할 수 있을까
 // 1. 유일한 식별자를 만들어야 할 때
