@@ -82,11 +82,14 @@ console.log($apple.matches('.banana')); // false
 // ### 39.4 노드 정보 취득
 // Node.prototype.nodeType 프로퍼티는 노드의 타입을 나타내는 정수 값을 반환한다.
 // Node.prototype.nodeName 프로퍼티는 노드의 이름을 나타내는 문자열을 반환한다.
+// 요소 노드의 경우 태그 이름을 대문자로 반환한다.
+// 텍스트 노드의 경우 #text를 반환한다.
+// 문서 노드는 #document를 반환한다.
 
 // ### 39.5 노드 요소의 텍스트 조작
 // 1. nodeValue
 // nodeValue 프로퍼티는 getter와 setter 함수를 갖는 데이터 프로퍼티이다. 따라서 참조와 할당 모두 가능하다.
-// 노드 객체의 값을 반환하고, 노드 객체의 값이란 텍스트 노드의 텍스트다. 요소 노드의 경우 null을 반환한다.
+// 노드 객체의 값을 반환하고, 노드 객체의 값이란 텍스트 노드의 텍스트다. 문서 노드나 요소 노드의 경우 null을 반환한다.
 
 <div id="foo">Hello</div>
 
@@ -102,6 +105,8 @@ console.log(document.getElementById('foo').firstChild.nodeValue); // Hello
 // 2. textContent
 // nodeValue 와 마찬가지로 getter와 setter 함수를 갖는 데이터 프로퍼티이다. 요소 노드의 텍스트와 모든 자손 노드의 텍스트를 모두 취득하거나 변경할 수 있다.
 // nodeValue는 텍스트 노드의 텍스트만 취득하거나 변경할 수 있지만 textContent는 요소 노드의 텍스트와 모든 자손 노드의 텍스트를 모두 취득하거나 변경할 수 있다.
+// 비슷한 프로퍼티로 innerText가 있다. 눈에 보이는 텍스트만 취득하거나 변경할 수 있기 때문에 css 처리 과정이 들어가며 리플로우가 발생한다.
+// 옛날에는 innerText가 비표준이었다고 한다.
 
 
 // ### 39.6 DOM 조작
@@ -111,9 +116,12 @@ console.log(document.getElementById('foo').firstChild.nodeValue); // Hello
 // innerHTML
 // innerHTML 프로퍼티는 HTML 문자열을 파싱하여 DOM을 생성하고 기존의 DOM을 제거한 후 새로운 DOM을 삽입한다.
 // textContent 프로퍼티를 참조하면 텍스트만 취득할 수 있지만 innerHTML 프로퍼티를 참조하면 HTML 마크업이 포함된 문자열을 취득할 수 있다.
+// 사용법이 간단하고 편리하지만 DOM 비용을 많이 잡아먹고, 요소 앞에 추가하거나 하는 등의 세밀한 조작이 불가능한 느낌.
+// 프로세스 : 문자열 파싱 -> new DOM 생성 -> 기존 DOM 제거 -> new DOM 삽입
 
-// insertAdjacentHTML
+// insertAdjacentHTML (어제이슨트)
 // insertAdjacentHTML 기존 요소를 제거하지 않고도 지정한 위치에 새로운 요소를 삽입할 수 있다.
+// 프로세스 : new DOM 생성 -> new DOM 삽입
 
 // 노드 생성과 추가
 // 1. createElement
